@@ -8,17 +8,26 @@ variable "project" {
   default     = ""
 }
 
-variable "subnet_name" {
-  description = "nome da subnet a ser criado"
+variable "subnetworks" {
+  description = "Lista do objeto de network"
+  type = list(object({
+    name          = string
+    ip_cidr_range = string
+    region        = string
+  }))
+}
+
+variable "firewall_name" {
+  description = ""
   default     = ""
 }
 
-variable "ip_cidr_range" {
-  description = "range de ip em formato de bloco cidr 0.0.0.0/24"
-  default     = ""
+variable "firewall_allow_tcp_ports" {
+  description = "Lista do objeto de firewall"
+  default = []
 }
 
-variable "region" {
-  description = "região onde a subnet será criada"
-  default     = ""
+ variable "firewall_allow_udp_ports" {
+  description = "Lista do objeto de firewall"
+  default = []
 }
