@@ -1,8 +1,12 @@
+locals {
+  firewall_name = format("%s-%s", var.project, var.vpc_name)
+}
+
 resource "google_compute_network" "vpc_network" {
   project                 = var.project
   name                    = var.vpc_name
   auto_create_subnetworks = false
-  mtu                     = 1460
+  mtu                     = var.mtu
 }
 
 resource "google_compute_subnetwork" "subnetworks" {
@@ -15,9 +19,10 @@ resource "google_compute_subnetwork" "subnetworks" {
 }
 
 resource "google_compute_firewall" "firewall" {
-  name    = var.firewall_name
+  name    = local.firewall_name
   project = var.project
   network = google_compute_network.vpc_network.id
+
   allow {
     protocol = "tcp"
     ports    = var.firewall_allow_tcp_ports
@@ -27,8 +32,4 @@ resource "google_compute_firewall" "firewall" {
     protocol = "udp"
     ports    = var.firewall_allow_udp_ports
   }
-
-
 }
-
-
