@@ -23,13 +23,12 @@ resource "google_compute_firewall" "firewall" {
   project = var.project
   network = google_compute_network.vpc_network.id
 
-  allow {
-    protocol = "tcp"
-    ports    = var.firewall_allow_tcp_ports
+  dynamic "allow" {
+    for_each = var.firewall_allow
+    content {
+      protocol = allow.value.protocol
+      ports    = allow.value.port
+    }
   }
 
-  allow {
-    protocol = "udp"
-    ports    = var.firewall_allow_udp_ports
-  }
 }

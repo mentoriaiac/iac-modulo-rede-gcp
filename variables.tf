@@ -17,15 +17,12 @@ variable "subnetworks" {
   }))
 }
 
-variable "firewall_allow_tcp_ports" {
-  description = "Lista de portas TCP"
-  type        = list(number)
-}
-
-variable "firewall_allow_udp_ports" {
-  description = "Lista de portas UDP"
-  type        = list(number)
-  default     = []
+variable "firewall_allow" {
+  description = "Lista de portas para permitir no firewall"
+  type = list(object({
+    protocol = string
+    port     = list(number)
+  }))
 }
 
 variable "mtu" {
