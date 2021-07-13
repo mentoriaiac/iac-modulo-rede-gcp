@@ -26,6 +26,7 @@ e defina o seu projeto como padrão:
 
 `$ gcloud alpha billing accounts list`
 
+defina o uma conta de pagamentos ao projeto criado, use o id da saida do comando acima.
 `$ gcloud alpha billing projects link nomedoprojeto --billing-account 0X0X0X-0X0X0X-0X0X0X`
 
 **Criando conta de serviço**
