@@ -41,14 +41,14 @@ Rode o comando para criar a conta de serviço:
 dar a permissão para a conta de serviço gerenciar os recursos do projeto:
 
 ```
-$ gcloud projects add-iam-policy-binding toadeluigi 
- --member="serviceAccount:bifrost@toadeluigi.iam.gserviceaccount.com"  --role="roles/editor"
- ```
+$ gcloud projects add-iam-policy-binding PROJECT_ID \
+--member="serviceAccount:nomedacontadeservico@PROJECT_ID.iam.gserviceaccount.com"  --role="roles/editor"
+```
  
 e esse comando para criar a key de autenticação:
 ``` 
 $ gcloud iam service-accounts keys create key.json \
---iam-account=nomedacontadeservico@nomedoprojeto.iam.gserviceaccount.com
+--iam-account=nomedacontadeservico@PROJECT_ID.iam.gserviceaccount.com
 ```
 Definar o key.json na varivel de ambiente com o comando:
 
