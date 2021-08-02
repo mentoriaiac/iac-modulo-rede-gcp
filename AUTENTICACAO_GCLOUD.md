@@ -18,7 +18,7 @@
 
 e defina o seu projeto como padrão:
 
-`$ gcloud config set project nomedoprojeto`
+`$ gcloud config set project PROJECT_ID`
 
 **Habilite a conta de pagamento para o projeto:** *Caso o seu projeto já exista, provavelmente a conta de pagamento já está habilitada.
 
