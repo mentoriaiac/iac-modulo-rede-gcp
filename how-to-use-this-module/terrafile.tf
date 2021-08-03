@@ -1,6 +1,12 @@
+provider "google" {
+  region = "us-central1"
+    }
+  
+
+
 module "network_gcp" {
-  source  = "./.."
-  project = "nomedoprojeto"
+  source   = "./.."
+  project  = "nomedoprojeto"
   vpc_name = "nomedavpc"
   subnetworks = [
     {
