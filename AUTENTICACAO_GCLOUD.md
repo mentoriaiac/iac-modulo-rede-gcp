@@ -18,7 +18,7 @@
 
 e defina o seu projeto como padrão:
 
-`$ gcloud config set project nomedoprojeto`
+`$ gcloud config set project PROJECT_ID`
 
 **Habilite a conta de pagamento para o projeto:** *Caso o seu projeto já exista, provavelmente a conta de pagamento já está habilitada.
 
@@ -27,7 +27,8 @@ e defina o seu projeto como padrão:
 `$ gcloud alpha billing accounts list`
 
 defina o uma conta de pagamentos ao projeto criado, use o id da saida do comando acima.
-`$ gcloud alpha billing projects link nomedoprojeto --billing-account 0X0X0X-0X0X0X-0X0X0X`
+
+`$ gcloud alpha billing projects link PROJECT_ID --billing-account 0X0X0X-0X0X0X-0X0X0X`
 
 **Criando conta de serviço**
 
@@ -40,14 +41,14 @@ Rode o comando para criar a conta de serviço:
 dar a permissão para a conta de serviço gerenciar os recursos do projeto:
 
 ```
-$ gcloud projects add-iam-policy-binding toadeluigi 
- --member="serviceAccount:bifrost@toadeluigi.iam.gserviceaccount.com"  --role="roles/editor"
- ```
+$ gcloud projects add-iam-policy-binding PROJECT_ID \
+--member="serviceAccount:nomedacontadeservico@PROJECT_ID.iam.gserviceaccount.com"  --role="roles/editor"
+```
  
 e esse comando para criar a key de autenticação:
 ``` 
 $ gcloud iam service-accounts keys create key.json \
---iam-account=nomedacontadeservico@nomedoprojeto.iam.gserviceaccount.com
+--iam-account=nomedacontadeservico@PROJECT_ID.iam.gserviceaccount.com
 ```
 Definar o key.json na varivel de ambiente com o comando:
 
