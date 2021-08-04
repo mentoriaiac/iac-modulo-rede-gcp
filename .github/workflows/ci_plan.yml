@@ -13,10 +13,10 @@ env:
 
 jobs:
   plan:
-    name: 'terraform plan dev'
+    name: 'terraform plan'
     runs-on: ubuntu-20.04
     env:
-      TF_WORKING_DIR: "how-to-use-this-modulef" 
+      TF_WORKING_DIR: "how-to-use-this-module" 
 
     steps:
       - name: Checkout
