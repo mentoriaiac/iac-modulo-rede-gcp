@@ -70,3 +70,15 @@ caso você precise de habilitar mais API's rode o comando:
 e copie o nome do serviço que você necessita execute o passo anterior.
 
 *os comando foram validados em um ambiente com ubuntu 20.04*
+
+**GitHub Actions**
+
+Para realizar o CI/CD é necessário que tenha em mãos o PROJECT_ID e a GCP_KEY e salvá-los em Secrets com seus devidos nomes:
+- GCP_KEY
+- GCP_PROJECT_ID
+
+![image](https://user-images.githubusercontent.com/84750652/128938359-c7bbae3a-cb5b-4ab1-a0b0-a70d7af20802.png)
+
+O arquivo de variáveis consumido para teste está dentro de 'how-to-use-this-module'
+
+Os gatilhos para iniciar o teste são o 'pull-request' e o 'push' na 'branch: main'
