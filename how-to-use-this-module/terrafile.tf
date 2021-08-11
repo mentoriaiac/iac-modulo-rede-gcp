@@ -1,5 +1,6 @@
 provider "google" {
   region = "us-central1"
+  project_id = "striking-canyon-321600"
     }
   
 
