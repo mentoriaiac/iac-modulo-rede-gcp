@@ -57,6 +57,14 @@ jobs:
         id: plandev
         run: terraform plan -no-color 
 
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply -auto-approve 
+        
+      - name: Terraform Plan
+        id: destroy
+        run: terraform destroy -auto-approve
+
       - uses: actions/github-script@0.9.0
         if: github.event_name == 'pull_request'
         env:
