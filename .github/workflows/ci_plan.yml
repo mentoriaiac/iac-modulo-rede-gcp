@@ -61,8 +61,8 @@ jobs:
         id: apply
         run: terraform apply -auto-approve 
         
-      - name: Terraform Plan
-        id: plandev
+      - name: Terraform Destroy
+        id: destroy
         run: terraform destroy -auto-approve
 
       - uses: actions/github-script@0.9.0
