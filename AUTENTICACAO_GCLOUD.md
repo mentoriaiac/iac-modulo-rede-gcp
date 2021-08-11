@@ -15,6 +15,9 @@
 **Criando um projeto novo:** *Ignore caso já exista um projeto*
 
 ```$ gcloud projects create nomedoprojeto --billing-project=seubillingaccount```
+Para verificar o seu PROJECT_ID:
+
+``glcoud projects lis`t``   
 
 e defina o seu projeto como padrão:
 
