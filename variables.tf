@@ -30,3 +30,9 @@ variable "mtu" {
   type        = number
   default     = 1460
 }
+
+variable "region" {
+  type        = string
+  description = "Região na GCP onde os recursos serão criados."
+  default     = "us-central1"
+}
