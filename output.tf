@@ -5,7 +5,7 @@ output "vpc_id" {
 }
 
 
-output "subnets_id" {
+output "subnets" {
   description = "Retorna uma lista de objetos com os atributos das subnets criadas"
   value       = [for subnet in google_compute_subnetwork.subnetworks : subnet]
   sensitive   = false

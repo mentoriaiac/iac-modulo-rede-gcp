@@ -1,7 +1,10 @@
 module "network_gcp" {
-  source  = "./.."
-  project = "nomedoprojeto"
-  vpc_name = "nomedavpc"
+  source      = "./.."
+  project     = "mentoriaiac2"
+  vpc_name    = "nomedavpc"
+  direction   = "INGRESS"
+  target_tags = ["web"]
+  source_tags = ["web"]
   subnetworks = [
     {
       name          = "minhasubnet"
@@ -13,12 +16,13 @@ module "network_gcp" {
       ip_cidr_range = "10.10.0.0/16"
       region        = "us-west1"
     }
-  ]
-
-  firewall_allow = [
+  ] 
+    firewall_allow = [
     {
       protocol = "tcp"
       port     = [443, 80]
     }
   ]
 }
+
+
