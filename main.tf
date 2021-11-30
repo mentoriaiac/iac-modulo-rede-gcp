@@ -41,9 +41,9 @@ resource "google_compute_firewall" "firewall_rules" {
   network = google_compute_network.vpc_network.id
   direction          = var.direction
   target_tags        = var.target_tags
-  source_ranges      = var.direction == "EGRESS" ? var.source_ranges : null
-  source_tags        = var.direction == "EGRESS" ? var.source_tags : null
-  destination_ranges = var.direction == "INGRESS" ? var.destination_ranges : null
+  source_ranges      = var.direction == "INGRESS" ? var.source_ranges : null
+  source_tags        = var.direction == "INGRESS" ? var.source_tags : null
+  destination_ranges = var.direction == "EGRESS" ? var.destination_ranges : null
     
   dynamic "allow" {
     for_each = var.firewall_allow

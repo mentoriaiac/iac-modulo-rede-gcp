@@ -1,28 +1,23 @@
 module "network_gcp" {
-  source      = "./.."
-  project     = "mentoriaiac2"
-  vpc_name    = "nomedavpc"
+  source      = "github.com/lipenodias/iac-modulo-rede-gcp.git"
+  project     = var.project
+  vpc_name    = "rede-mentoria"
   direction   = "INGRESS"
-  target_tags = ["web"]
-  source_tags = ["web"]
+  target_tags = ["nomad"]
+  source_tags = ["nomad"]
   subnetworks = [
     {
-      name          = "minhasubnet"
+      name          = "subnet-nomad"
       ip_cidr_range = "10.0.0.0/16"
       region        = "us-central1"
-    },
-    {
-      name          = "minhasubnet2"
-      ip_cidr_range = "10.10.0.0/16"
-      region        = "us-west1"
     }
-  ] 
-    firewall_allow = [
+  ]
+
+  firewall_allow = [
     {
       protocol = "tcp"
-      port     = [443, 80]
+      port     = [22, 4646, 4647, 4648, 20000 - 32000]
     }
   ]
 }
-
 
