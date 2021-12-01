@@ -21,7 +21,7 @@ variable "firewall_allow" {
   description = "Lista de portas para permitir no firewall"
   type = list(object({
     protocol = string
-    port     = list(number)
+    port     = list(string)
   }))
 }
 
